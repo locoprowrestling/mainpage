@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoCo Pro Wrestling | The Story So Far</title>
+  <meta
+    name="description"
+    content="The main landing page for LoCo Pro Wrestling, tracing the in-universe history from Battle for Main Street through Vendetta at the Opera House."
+  >
+  <meta name="theme-color" content="#7c2417">
+  <meta property="og:title" content="LoCo Pro Wrestling">
+  <meta
+    property="og:description"
+    content="One city. Two factions. Read the LoCo Pro Wrestling timeline and jump straight into each event site."
+  >
+  <style>
+    :root {
+      --ink: #1f1712;
+      --ink-soft: #5d4a3f;
+      --paper: #f5ecdc;
+      --paper-deep: #e8dbc5;
+      --brick: #7c2417;
+      --copper: #b34e28;
+      --gold: #d5a24d;
+      --plum: #44201b;
+      --line: rgba(31, 23, 18, 0.14);
+      --shadow: 0 22px 60px rgba(64, 27, 16, 0.14);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(213, 162, 77, 0.24), transparent 28rem),
+        radial-gradient(circle at top right, rgba(179, 78, 40, 0.18), transparent 24rem),
+        linear-gradient(180deg, #f7efdf 0%, #f0e5d2 42%, #efe4d4 100%);
+      font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+      line-height: 1.5;
+      min-width: 320px;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 36, 23, 0.04) 1px, transparent 1px);
+      background-size: 100% 30px, 30px 100%;
+      opacity: 0.24;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
+        radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.25), transparent 16%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      width: min(var(--max-width), calc(100vw - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 236, 220, 0.84);
+      border-bottom: 1px solid rgba(31, 23, 18, 0.08);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .brand__mark {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, #f8d8a0, transparent 35%),
+        linear-gradient(145deg, var(--brick), var(--plum));
+      color: #fff4e6;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.24);
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.65rem;
+    }
+
+    .nav a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 2.8rem;
+      padding: 0.78rem 1.15rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .nav a:hover,
+    .button:hover,
+    .nav a:focus-visible,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(89, 33, 21, 0.16);
+      outline: none;
+    }
+
+    .button--primary,
+    .nav a:first-child {
+      background: linear-gradient(135deg, var(--brick), var(--copper));
+      color: #fff4e6;
+      border: 1px solid rgba(124, 36, 23, 0.14);
+    }
+
+    .button--ghost,
+    .nav a:not(:first-child) {
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(31, 23, 18, 0.1);
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 4.75rem 0 2.5rem;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.8fr);
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .hero__story,
+    .hero__ledger,
+    .timeline__item,
+    .event-card,
+    .link-card,
+    .faction-card {
+      border: 1px solid rgba(31, 23, 18, 0.08);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 243, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .hero__story {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(247, 233, 209, 0.88)),
+        radial-gradient(circle at right top, rgba(213, 162, 77, 0.25), transparent 35%);
+    }
+
+    .hero__story::after {
+      content: "";
+      position: absolute;
+      right: -5rem;
+      bottom: -5rem;
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 36, 23, 0.13), transparent 70%);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--brick);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero h1,
+    .section-head h2,
+    .event-card h3,
+    .faction-card h3,
+    .link-card h3 {
+      margin: 0;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 {
+      max-width: 13ch;
+      font-size: clamp(3.2rem, 10vw, 6.4rem);
+    }
+
+    .hero__lead {
+      max-width: 62ch;
+      margin: 1.35rem 0 0;
+      font-size: 1.16rem;
+      color: var(--ink-soft);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+    }
+
+    .hero__details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.8rem;
+    }
+
+    .detail {
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(31, 23, 18, 0.08);
+    }
+
+    .detail span {
+      display: block;
+    }
+
+    .detail__label {
+      margin-bottom: 0.18rem;
+      color: var(--ink-soft);
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .detail__value {
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .hero__ledger {
+      display: grid;
+      gap: 1rem;
+      padding: 1.4rem;
+      background:
+        linear-gradient(180deg, rgba(68, 32, 27, 0.96), rgba(31, 23, 18, 0.98)),
+        radial-gradient(circle at top, rgba(213, 162, 77, 0.24), transparent 38%);
+      color: #f8ead8;
+    }
+
+    .ledger__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .ledger__head p {
+      margin: 0;
+      color: rgba(248, 234, 216, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .seal {
+      min-width: 4.25rem;
+      height: 4.25rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle, rgba(213, 162, 77, 0.48), rgba(213, 162, 77, 0.14));
+      border: 1px solid rgba(213, 162, 77, 0.38);
+      color: var(--gold);
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 0.92rem;
+      text-align: center;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .ledger__quote {
+      margin: 0;
+      padding: 1rem 1rem 1.1rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(248, 234, 216, 0.12);
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 1.24rem;
+      line-height: 1.25;
+    }
+
+    .ledger__items {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .ledger__item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.8rem;
+      align-items: end;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(248, 234, 216, 0.12);
+    }
+
+    .ledger__item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .ledger__label {
+      color: rgba(248, 234, 216, 0.68);
+      font-size: 0.78rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .ledger__value {
+      font-size: 1.02rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .section {
+      padding: 1rem 0 4rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.3rem, 6vw, 4.1rem);
+    }
+
+    .section-head p {
+      max-width: 50ch;
+      margin: 0.7rem 0 0;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+    }
+
+    .faction-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .faction-card {
+      padding: 1.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faction-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -45% auto;
+      width: 11rem;
+      height: 11rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(213, 162, 77, 0.18), transparent 72%);
+      pointer-events: none;
+    }
+
+    .faction-card h3 {
+      font-size: 1.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faction-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      left: 0.55rem;
+      width: 2px;
+      background: linear-gradient(180deg, var(--brick), rgba(124, 36, 23, 0.16));
+    }
+
+    .timeline__item {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1.2rem 1.2rem 1.2rem 1.35rem;
+    }
+
+    .timeline__item::before {
+      content: "";
+      position: absolute;
+      left: -1.93rem;
+      top: 1.4rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brick), var(--gold));
+      box-shadow: 0 0 0 6px rgba(245, 236, 220, 1);
+    }
+
+    .timeline__date {
+      color: var(--brick);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .timeline__body h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.7rem;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+    }
+
+    .timeline__body p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1.03rem;
+    }
+
+    .event-grid,
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .event-card,
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+      padding: 1.35rem;
+    }
+
+    .card-label {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 0.4rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(124, 36, 23, 0.08);
+      color: var(--brick);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .event-card h3,
+    .link-card h3 {
+      font-size: 2rem;
+    }
+
+    .event-card p,
+    .link-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+    }
+
+    .domain {
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button-wrap {
+      margin-top: auto;
+    }
+
+    .button--card {
+      width: 100%;
+      border: 1px solid rgba(124, 36, 23, 0.12);
+    }
+
+    .link-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer {
+      padding: 0 0 3rem;
+    }
+
+    .footer__panel {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(31, 23, 18, 0.08);
+      background: rgba(255, 250, 243, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .footer__panel p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .nav a,
+      .button {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero__grid,
+      .faction-grid,
+      .event-grid,
+      .link-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline__item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__details {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header__inner,
+      .footer__panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .timeline {
+        padding-left: 1.5rem;
+      }
+
+      .timeline::before {
+        left: 0.4rem;
+      }
+
+      .timeline__item::before {
+        left: -1.47rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="#top" aria-label="LoCo Pro Wrestling home">
+        <span class="brand__mark">LoCo</span>
+        <span>LoCo Pro Wrestling</span>
+      </a>
+      <nav class="nav" aria-label="Site sections">
+        <a href="#events">Event Sites</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#links">More Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero__grid">
+        <article class="hero__story reveal">
+          <p class="eyebrow">Longmont, Colorado</p>
+          <h1>One city. Two factions. No quiet ending.</h1>
+          <p class="hero__lead">
+            LoCo Pro Wrestling presents its history the way Longmont tells it:
+            as lived fact. The Rising claim this town was built by people who
+            earned every inch of it. The Pillars insist control, contracts, and
+            old money still decide whose version survives. Every show at the
+            Opera House becomes another chapter in that fight.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#timeline">Read the timeline</a>
+            <a class="button button--ghost" href="#events">Visit the event sites</a>
+          </div>
+
+          <div class="hero__details" aria-label="Quick facts">
+            <div class="detail">
+              <span class="detail__label">Promotion founded</span>
+              <span class="detail__value">Summer 2017</span>
+            </div>
+            <div class="detail">
+              <span class="detail__label">First bell</span>
+              <span class="detail__value">August 30, 2017</span>
+            </div>
+            <div class="detail">
+              <span class="detail__label">Latest chapter</span>
+              <span class="detail__value">March 7, 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="hero__ledger reveal">
+          <div class="ledger__head">
+            <div>
+              <p class="eyebrow" style="color: var(--gold); margin-bottom: 0.45rem;">Public Record</p>
+              <p>The ongoing dispute over who gets to define Longmont's fighting history.</p>
+            </div>
+            <div class="seal" aria-hidden="true">Town<br>Ledger</div>
+          </div>
+
+          <p class="ledger__quote">
+            The Pillars kept trying to outlast the truth. LoCo Pro kept putting
+            the truth back under the lights.
+          </p>
+
+          <div class="ledger__items">
+            <div class="ledger__item">
+              <div>
+                <div class="ledger__label">Primary venue</div>
+                <div class="ledger__value" style="text-align: left;">Dickens Opera House</div>
+              </div>
+              <div class="ledger__label">Main Street</div>
+            </div>
+            <div class="ledger__item">
+              <div>
+                <div class="ledger__label">Founding conflict</div>
+                <div class="ledger__value" style="text-align: left;">The Rising vs. The Pillars</div>
+              </div>
+              <div class="ledger__label">Still active</div>
+            </div>
+            <div class="ledger__item">
+              <div>
+                <div class="ledger__label">Buried result</div>
+                <div class="ledger__value" style="text-align: left;">Cormac Battle over JT Staten</div>
+              </div>
+              <div class="ledger__label">Disputed by the Pillars</div>
+            </div>
+            <div class="ledger__item">
+              <div>
+                <div class="ledger__label">Current position</div>
+                <div class="ledger__value" style="text-align: left;">Longmont remembers</div>
+              </div>
+              <div class="ledger__label">And gets louder</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">The Core Story</p>
+            <h2>What LoCo Pro says happened</h2>
+          </div>
+          <p>
+            This is the public-facing version of the feud: The Rising believe
+            Longmont belongs to the people who built it. The Pillars treat the
+            town like inherited property. The Opera House is where those
+            arguments stop being speeches and start becoming results.
+          </p>
+        </div>
+
+        <div class="faction-grid">
+          <article class="faction-card reveal">
+            <p class="card-label">Faction one</p>
+            <h3>The Rising</h3>
+            <p>
+              The city's defiant side. Workers, noise-makers, lifers, and
+              outsiders who treat every event like proof that Longmont cannot be
+              signed away.
+            </p>
+          </article>
+
+          <article class="faction-card reveal">
+            <p class="card-label">Faction two</p>
+            <h3>The Pillars</h3>
+            <p>
+              Contracts, tradition, pressure, and quiet rooms. The Pillars
+              prefer paperwork to memory and control to applause, especially
+              when the crowd sides against them.
+            </p>
+          </article>
+
+          <article class="faction-card reveal">
+            <p class="card-label">Ground zero</p>
+            <h3>Dickens Opera House</h3>
+            <p>
+              The building where the first LoCo Pro bell rang, where the 2017
+              dispute was frozen, and where Longmont forced the issue back into
+              the open in 2025 and 2026.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Timeline</p>
+            <h2>The story so far</h2>
+          </div>
+          <p>
+            LoCo Pro frames its rivalry like local history, not fantasy. The
+            dates below trace the version of events the promotion insists is
+            true, from the first land fight in 1871 to the vendetta that
+            followed the Opera House return.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <div class="timeline__date">July 3, 1871</div>
+            <div class="timeline__body">
+              <h3>The Rising head west</h3>
+              <p>
+                Families leave Chicago in search of land, dignity, and a future
+                they can claim with their own hands. In LoCo Pro history, this
+                is where the city's fighting spirit begins.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">August 9, 1871</div>
+            <div class="timeline__body">
+              <h3>The Pillars arrive with paper and power</h3>
+              <p>
+                Wealth and influence reach Longmont after the settlers do.
+                Forged deeds, political favors, and official records become the
+                Pillars' preferred weapons, establishing the pattern that keeps
+                showing up generations later.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">August 30, 2017</div>
+            <div class="timeline__body">
+              <h3>Battle for Main Street</h3>
+              <p>
+                LoCo Pro Wrestling launches at Dickens Opera House. Witnesses
+                say Cormac Battle defeated JT Staten clean, giving The Rising a
+                win the city would talk about for years even after the official
+                record tried to go silent.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">August 31, 2017</div>
+            <div class="timeline__body">
+              <h3>The freeze</h3>
+              <p>
+                An exclusive booking arrangement locks wrestling away from the
+                Opera House almost immediately after the first event. The win is
+                treated as if it never had permission to grow, which only makes
+                the buried result more important to the people who remember it.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">November 16, 2025</div>
+            <div class="timeline__body">
+              <h3>Battle at the Opera House</h3>
+              <p>
+                After eight years of pressure, LoCo Pro forces its way back
+                under the same lights. The Rising stand tall again, Zeak
+                Gallent survives the tournament, and Longmont hears the old
+                argument return at full volume.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">March 7, 2026</div>
+            <div class="timeline__body">
+              <h3>Vendetta at the Opera House</h3>
+              <p>
+                What started as a comeback becomes a reckoning. The 2017 wound
+                is no longer rumor, the Pillars can no longer pretend the city
+                forgot, and the feud moves from rivalry to outright vendetta.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Event Directory</p>
+            <h2>Open the chapters directly</h2>
+          </div>
+          <p>
+            Each event site covers a different phase of the same conflict. Start
+            at the first bell, revisit the 2025 return, or jump to the vendetta
+            that followed.
+          </p>
+        </div>
+
+        <div class="event-grid">
+          <article class="event-card reveal">
+            <p class="card-label">August 30, 2017</p>
+            <h3>Battle for Main Street</h3>
+            <div class="domain">mainstreet.locopro.pw</div>
+            <p>
+              The inaugural LoCo Pro event and the night the buried result
+              entered the city's memory for good.
+            </p>
+            <div class="button-wrap">
+              <a
+                class="button button--primary button--card"
+                href="https://mainstreet.locopro.pw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit event site
+              </a>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <p class="card-label">November 16, 2025</p>
+            <h3>Battle at the Opera House</h3>
+            <div class="domain">battle.locopro.pw</div>
+            <p>
+              The return to Dickens Opera House and the night LoCo Pro proved
+              the first fight was never actually finished.
+            </p>
+            <div class="button-wrap">
+              <a
+                class="button button--primary button--card"
+                href="https://battle.locopro.pw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit event site
+              </a>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <p class="card-label">March 7, 2026</p>
+            <h3>Vendetta at the Opera House</h3>
+            <div class="domain">vendetta.locopro.pw</div>
+            <p>
+              The feud hardens into payback, with old names, old paperwork, and
+              old grudges finally surfacing where everyone can see them.
+            </p>
+            <div class="button-wrap">
+              <a
+                class="button button--primary button--card"
+                href="https://vendetta.locopro.pw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit event site
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">More LoCo Pro</p>
+            <h2>Follow the side channels</h2>
+          </div>
+          <p>
+            These are the smaller doors into the same world: one shaped by fan
+            participation, the other by outside coverage and reading material.
+          </p>
+        </div>
+
+        <div class="link-grid">
+          <article class="link-card reveal">
+            <p class="card-label">Community signal</p>
+            <h3>Vote</h3>
+            <div class="domain">vote.locopro.pw</div>
+            <p>
+              A direct route into crowd choice, audience sentiment, and the
+              kind of participation that turns a wrestling crowd into a civic
+              force.
+            </p>
+            <div class="button-wrap">
+              <a
+                class="button button--ghost button--card"
+                href="https://vote.locopro.pw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open vote portal
+              </a>
+            </div>
+          </article>
+
+          <article class="link-card reveal">
+            <p class="card-label">Reading room</p>
+            <h3>Indie Reader</h3>
+            <div class="domain">indiereader.locopro.pw</div>
+            <p>
+              Supplemental coverage, side material, and the sort of outside
+              record that helps keep the Pillars from quietly controlling the
+              narrative.
+            </p>
+            <div class="button-wrap">
+              <a
+                class="button button--ghost button--card"
+                href="https://indiereader.locopro.pw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Indie Reader
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer__panel reveal">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 0.3rem;">LoCo Pro Wrestling</p>
+          <p>Longmont's ongoing fight over memory, power, and who gets the last word.</p>
+        </div>
+        <a class="button button--primary" href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        for (var i = 0; i < items.length; i += 1) {
+          items[i].classList.add('is-visible');
+        }
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i += 1) {
+          if (entries[i].isIntersecting) {
+            entries[i].target.classList.add('is-visible');
+            observer.unobserve(entries[i].target);
+          }
+        }
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      for (var j = 0; j < items.length; j += 1) {
+        observer.observe(items[j]);
+      }
+    }());
+  </script>
+</body>
+</html>
