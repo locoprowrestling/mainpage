@@ -414,7 +414,10 @@
     }
 
     .faction-card {
-      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.82rem;
+      padding: 1.45rem 1.35rem 1.4rem;
       position: relative;
       overflow: hidden;
     }
@@ -444,13 +447,16 @@
 
     .faction-card h3 {
       font-size: 1.85rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
+      line-height: 1.08;
+      text-wrap: balance;
     }
 
-    .faction-card p {
+    .faction-card p:not(.card-label) {
       margin: 0;
       color: var(--ink-soft);
       font-size: 1rem;
+      line-height: 1.62;
     }
 
     .timeline {
@@ -528,16 +534,21 @@
     .card-label {
       display: inline-flex;
       align-self: flex-start;
-      padding: 0.4rem 0.72rem;
+      padding: 0.5rem 0.92rem;
       margin-bottom: 0.8rem;
       border-radius: 999px;
       background: rgba(207, 172, 0, 0.14);
       border: 1px solid rgba(207, 172, 0, 0.2);
       color: var(--gold);
-      font-size: 0.76rem;
+      font-size: 0.8rem;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
+      line-height: 1;
       text-transform: uppercase;
+    }
+
+    .faction-card .card-label {
+      margin-bottom: 0;
     }
 
     .event-card h3,
