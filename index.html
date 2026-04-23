@@ -8,24 +8,31 @@
     name="description"
     content="The main landing page for LoCo Pro Wrestling, tracing the in-universe history from Battle for Main Street through Vendetta at the Opera House."
   >
-  <meta name="theme-color" content="#7c2417">
+  <meta name="theme-color" content="#3d175d">
   <meta property="og:title" content="LoCo Pro Wrestling">
   <meta
     property="og:description"
     content="One city. Two factions. Read the LoCo Pro Wrestling timeline and jump straight into each event site."
   >
+  <link rel="icon" type="image/png" href="webimages/locopro-logo.png">
+  <link rel="apple-touch-icon" href="webimages/locopro-logo.png">
   <style>
     :root {
-      --ink: #1f1712;
-      --ink-soft: #5d4a3f;
-      --paper: #f5ecdc;
-      --paper-deep: #e8dbc5;
-      --brick: #7c2417;
-      --copper: #b34e28;
-      --gold: #d5a24d;
-      --plum: #44201b;
-      --line: rgba(31, 23, 18, 0.14);
-      --shadow: 0 22px 60px rgba(64, 27, 16, 0.14);
+      --ink: #f5f5f5;
+      --ink-soft: rgba(207, 207, 207, 0.82);
+      --paper: #3d175d;
+      --paper-deep: #2f0b56;
+      --brick: #5a2488;
+      --copper: #3d175d;
+      --gold: #cfac00;
+      --green: #008642;
+      --plum: #150d20;
+      --line: rgba(207, 207, 207, 0.14);
+      --line-strong: rgba(90, 36, 136, 0.72);
+      --surface: rgba(47, 11, 86, 0.8);
+      --surface-soft: rgba(90, 36, 136, 0.2);
+      --surface-strong: rgba(21, 13, 32, 0.94);
+      --shadow: 0 26px 70px rgba(7, 2, 20, 0.45);
       --radius: 24px;
       --max-width: 1180px;
     }
@@ -42,9 +49,10 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(213, 162, 77, 0.24), transparent 28rem),
-        radial-gradient(circle at top right, rgba(179, 78, 40, 0.18), transparent 24rem),
-        linear-gradient(180deg, #f7efdf 0%, #f0e5d2 42%, #efe4d4 100%);
+        radial-gradient(circle at top left, rgba(207, 172, 0, 0.18), transparent 24rem),
+        radial-gradient(circle at top right, rgba(0, 134, 66, 0.16), transparent 22rem),
+        radial-gradient(circle at center top, rgba(90, 36, 136, 0.3), transparent 32rem),
+        linear-gradient(180deg, #3d175d 0%, #2f0b56 52%, #150d20 100%);
       font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
       line-height: 1.5;
       min-width: 320px;
@@ -56,10 +64,10 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 36, 23, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(207, 207, 207, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 36, 136, 0.14) 1px, transparent 1px);
       background-size: 100% 30px, 30px 100%;
-      opacity: 0.24;
+      opacity: 0.42;
       pointer-events: none;
       z-index: -2;
     }
@@ -69,8 +77,9 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
-        radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.25), transparent 16%);
+        radial-gradient(circle at 50% 0%, rgba(207, 172, 0, 0.15), transparent 34%),
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.08), transparent 16%),
+        radial-gradient(circle at 88% 10%, rgba(0, 134, 66, 0.1), transparent 14%);
       pointer-events: none;
       z-index: -1;
     }
@@ -94,8 +103,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(14px);
-      background: rgba(245, 236, 220, 0.84);
-      border-bottom: 1px solid rgba(31, 23, 18, 0.08);
+      background: rgba(47, 11, 86, 0.76);
+      border-bottom: 1px solid var(--line);
     }
 
     .site-header__inner {
@@ -118,19 +127,24 @@
     }
 
     .brand__mark {
-      width: 2.9rem;
-      height: 2.9rem;
-      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      padding: 0.38rem;
+      border-radius: 18px;
       display: grid;
       place-items: center;
-      background:
-        radial-gradient(circle at 30% 30%, #f8d8a0, transparent 35%),
-        linear-gradient(145deg, var(--brick), var(--plum));
-      color: #fff4e6;
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.24);
-      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
-      font-size: 1.05rem;
-      font-weight: 700;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(90, 36, 136, 0.94), rgba(47, 11, 86, 0.92));
+      border: 1px solid var(--line-strong);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 10px 22px rgba(8, 2, 22, 0.32);
+    }
+
+    .brand__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav {
@@ -162,21 +176,21 @@
     .nav a:focus-visible,
     .button:focus-visible {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(89, 33, 21, 0.16);
+      box-shadow: 0 14px 32px rgba(10, 3, 24, 0.34);
       outline: none;
     }
 
     .button--primary,
     .nav a:first-child {
-      background: linear-gradient(135deg, var(--brick), var(--copper));
-      color: #fff4e6;
-      border: 1px solid rgba(124, 36, 23, 0.14);
+      background: linear-gradient(135deg, var(--gold), #b99b00);
+      color: var(--plum);
+      border: 1px solid rgba(207, 172, 0, 0.4);
     }
 
     .button--ghost,
     .nav a:not(:first-child) {
-      background: rgba(255, 255, 255, 0.54);
-      border: 1px solid rgba(31, 23, 18, 0.1);
+      background: rgba(90, 36, 136, 0.22);
+      border: 1px solid rgba(207, 207, 207, 0.12);
       color: var(--ink);
     }
 
@@ -197,9 +211,9 @@
     .event-card,
     .link-card,
     .faction-card {
-      border: 1px solid rgba(31, 23, 18, 0.08);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 250, 243, 0.78);
+      background: var(--surface);
       box-shadow: var(--shadow);
     }
 
@@ -208,8 +222,8 @@
       overflow: hidden;
       padding: clamp(2rem, 5vw, 3.5rem);
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(247, 233, 209, 0.88)),
-        radial-gradient(circle at right top, rgba(213, 162, 77, 0.25), transparent 35%);
+        linear-gradient(135deg, rgba(47, 11, 86, 0.94), rgba(61, 23, 93, 0.96)),
+        radial-gradient(circle at right top, rgba(207, 172, 0, 0.2), transparent 36%);
     }
 
     .hero__story::after {
@@ -220,12 +234,12 @@
       width: 16rem;
       height: 16rem;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 36, 23, 0.13), transparent 70%);
+      background: radial-gradient(circle, rgba(90, 36, 136, 0.38), transparent 70%);
     }
 
     .eyebrow {
       margin: 0 0 0.9rem;
-      color: var(--brick);
+      color: var(--gold);
       font-size: 0.88rem;
       font-weight: 900;
       letter-spacing: 0.18em;
@@ -272,8 +286,8 @@
     .detail {
       padding: 0.9rem 1rem;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(31, 23, 18, 0.08);
+      background: rgba(21, 13, 32, 0.34);
+      border: 1px solid rgba(207, 207, 207, 0.08);
     }
 
     .detail span {
@@ -293,6 +307,7 @@
       font-size: 1rem;
       font-weight: 900;
       text-transform: uppercase;
+      color: var(--gold);
     }
 
     .hero__ledger {
@@ -300,9 +315,9 @@
       gap: 1rem;
       padding: 1.4rem;
       background:
-        linear-gradient(180deg, rgba(68, 32, 27, 0.96), rgba(31, 23, 18, 0.98)),
-        radial-gradient(circle at top, rgba(213, 162, 77, 0.24), transparent 38%);
-      color: #f8ead8;
+        linear-gradient(180deg, rgba(21, 13, 32, 0.98), rgba(47, 11, 86, 0.98)),
+        radial-gradient(circle at top, rgba(0, 134, 66, 0.18), transparent 42%);
+      color: var(--ink);
     }
 
     .ledger__head {
@@ -314,7 +329,7 @@
 
     .ledger__head p {
       margin: 0;
-      color: rgba(248, 234, 216, 0.72);
+      color: rgba(207, 207, 207, 0.76);
       font-size: 0.95rem;
     }
 
@@ -325,8 +340,8 @@
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle, rgba(213, 162, 77, 0.48), rgba(213, 162, 77, 0.14));
-      border: 1px solid rgba(213, 162, 77, 0.38);
+        radial-gradient(circle, rgba(207, 172, 0, 0.48), rgba(90, 36, 136, 0.16));
+      border: 1px solid rgba(207, 172, 0, 0.38);
       color: var(--gold);
       font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
       font-size: 0.92rem;
@@ -339,8 +354,8 @@
       margin: 0;
       padding: 1rem 1rem 1.1rem;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(248, 234, 216, 0.12);
+      background: rgba(90, 36, 136, 0.2);
+      border: 1px solid rgba(207, 207, 207, 0.12);
       font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
       font-size: 1.24rem;
       line-height: 1.25;
@@ -357,7 +372,7 @@
       gap: 0.8rem;
       align-items: end;
       padding-bottom: 0.65rem;
-      border-bottom: 1px solid rgba(248, 234, 216, 0.12);
+      border-bottom: 1px solid rgba(207, 207, 207, 0.12);
     }
 
     .ledger__item:last-child {
@@ -366,7 +381,7 @@
     }
 
     .ledger__label {
-      color: rgba(248, 234, 216, 0.68);
+      color: rgba(207, 207, 207, 0.68);
       font-size: 0.78rem;
       letter-spacing: 0.11em;
       text-transform: uppercase;
@@ -422,8 +437,20 @@
       width: 11rem;
       height: 11rem;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(213, 162, 77, 0.18), transparent 72%);
+      background: radial-gradient(circle, rgba(207, 172, 0, 0.18), transparent 72%);
       pointer-events: none;
+    }
+
+    .faction-card:nth-child(1) {
+      border-color: rgba(0, 134, 66, 0.42);
+    }
+
+    .faction-card:nth-child(2) {
+      border-color: rgba(207, 172, 0, 0.38);
+    }
+
+    .faction-card:nth-child(3) {
+      border-color: rgba(90, 36, 136, 0.82);
     }
 
     .faction-card h3 {
@@ -451,7 +478,7 @@
       bottom: 0.5rem;
       left: 0.55rem;
       width: 2px;
-      background: linear-gradient(180deg, var(--brick), rgba(124, 36, 23, 0.16));
+      background: linear-gradient(180deg, var(--gold), rgba(0, 134, 66, 0.36));
     }
 
     .timeline__item {
@@ -470,12 +497,12 @@
       width: 1rem;
       height: 1rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--brick), var(--gold));
-      box-shadow: 0 0 0 6px rgba(245, 236, 220, 1);
+      background: linear-gradient(135deg, var(--gold), var(--green));
+      box-shadow: 0 0 0 6px rgba(47, 11, 86, 1);
     }
 
     .timeline__date {
-      color: var(--brick);
+      color: var(--gold);
       font-size: 0.88rem;
       font-weight: 900;
       letter-spacing: 0.15em;
@@ -514,8 +541,9 @@
       align-self: flex-start;
       padding: 0.4rem 0.72rem;
       border-radius: 999px;
-      background: rgba(124, 36, 23, 0.08);
-      color: var(--brick);
+      background: rgba(207, 172, 0, 0.14);
+      border: 1px solid rgba(207, 172, 0, 0.2);
+      color: var(--gold);
       font-size: 0.76rem;
       font-weight: 900;
       letter-spacing: 0.12em;
@@ -548,7 +576,7 @@
 
     .button--card {
       width: 100%;
-      border: 1px solid rgba(124, 36, 23, 0.12);
+      border: 1px solid rgba(207, 207, 207, 0.16);
     }
 
     .link-grid {
@@ -566,8 +594,8 @@
       align-items: center;
       padding: 1.2rem 1.4rem;
       border-radius: var(--radius);
-      border: 1px solid rgba(31, 23, 18, 0.08);
-      background: rgba(255, 250, 243, 0.86);
+      border: 1px solid var(--line);
+      background: rgba(47, 11, 86, 0.86);
       box-shadow: var(--shadow);
     }
 
@@ -655,7 +683,9 @@
   <header class="site-header">
     <div class="shell site-header__inner">
       <a class="brand" href="#top" aria-label="LoCo Pro Wrestling home">
-        <span class="brand__mark">LoCo</span>
+        <span class="brand__mark" aria-hidden="true">
+          <img src="webimages/locopro-logo.png" alt="">
+        </span>
         <span>LoCo Pro Wrestling</span>
       </a>
       <nav class="nav" aria-label="Site sections">
@@ -673,11 +703,10 @@
           <p class="eyebrow">Longmont, Colorado</p>
           <h1>One city. Two factions. No quiet ending.</h1>
           <p class="hero__lead">
-            LoCo Pro Wrestling presents its history the way Longmont tells it:
-            as lived fact. The Rising claim this town was built by people who
-            earned every inch of it. The Pillars insist control, contracts, and
-            old money still decide whose version survives. Every show at the
-            Opera House becomes another chapter in that fight.
+            Longmont was built by people who earned every inch of it. The
+            Pillars still believe contracts, control, and old money decide who
+            gets to rule it. Every show at the Opera House becomes another
+            chapter in that fight.
           </p>
 
           <div class="hero__actions">
@@ -754,10 +783,9 @@
         <div class="section-head reveal">
           <div>
             <p class="eyebrow">The Core Story</p>
-            <h2>What LoCo Pro says happened</h2>
+            <h2>What happened in Longmont</h2>
           </div>
           <p>
-            This is the public-facing version of the feud: The Rising believe
             Longmont belongs to the people who built it. The Pillars treat the
             town like inherited property. The Opera House is where those
             arguments stop being speeches and start becoming results.
@@ -806,10 +834,8 @@
             <h2>The story so far</h2>
           </div>
           <p>
-            LoCo Pro frames its rivalry like local history, not fantasy. The
-            dates below trace the version of events the promotion insists is
-            true, from the first land fight in 1871 to the vendetta that
-            followed the Opera House return.
+            The dates below trace the fight from the first land battle in 1871
+            to the return of the City of Lights Championship in 2026.
           </p>
         </div>
 
@@ -820,8 +846,8 @@
               <h3>The Rising head west</h3>
               <p>
                 Families leave Chicago in search of land, dignity, and a future
-                they can claim with their own hands. In LoCo Pro history, this
-                is where the city's fighting spirit begins.
+                they can claim with their own hands. This is where the city's
+                fighting spirit begins.
               </p>
             </div>
           </article>
@@ -840,14 +866,75 @@
           </article>
 
           <article class="timeline__item reveal">
+            <div class="timeline__date">1881</div>
+            <div class="timeline__body">
+              <h3>Dickens Opera House enters the story</h3>
+              <p>
+                The Dickens Opera House is built in Longmont. The building
+                becomes more than a venue. It becomes the room where the city
+                keeps settling arguments it refuses to let die.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">1912</div>
+            <div class="timeline__body">
+              <h3>Longmont becomes the City of Lights</h3>
+              <p>
+                The hydroelectric plant delivers its first power, and Longmont
+                soon starts calling itself the City of Lights. Free porch
+                lights turn civic pride into a public glow the whole town can
+                claim.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">1917</div>
+            <div class="timeline__body">
+              <h3>The first City of Lights Championship is minted</h3>
+              <p>
+                Longmont's first professional wrestling championship is cast
+                into metal and named the City of Lights Championship. The belt
+                symbolizes a title the city itself recognizes as its own.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">1918</div>
+            <div class="timeline__body">
+              <h3>The pandemic shuts the town down</h3>
+              <p>
+                The influenza pandemic brings bans on public gatherings and
+                heavy loss to Longmont. Crowds disappear, events stop, and the
+                city's public life is interrupted by grief.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">1919</div>
+            <div class="timeline__body">
+              <h3>The championship vanishes</h3>
+              <p>
+                The City of Lights Championship disappears without a trace.
+                Nobody produces a clean record of where it went, who took it,
+                or why Longmont was expected to forget it ever existed.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
             <div class="timeline__date">August 30, 2017</div>
             <div class="timeline__body">
               <h3>Battle for Main Street</h3>
               <p>
-                LoCo Pro Wrestling launches at Dickens Opera House. Witnesses
-                say Cormac Battle defeated JT Staten clean, giving The Rising a
-                win the city would talk about for years even after the official
-                record tried to go silent.
+                LoCo Pro Wrestling launches at Dickens Opera House. Cormac
+                Battle defeats JT Staten clean, giving The Rising a win the
+                city talks about for years even after the official record tries
+                to go silent.
               </p>
             </div>
           </article>
@@ -879,13 +966,26 @@
           </article>
 
           <article class="timeline__item reveal">
+            <div class="timeline__date">February 19, 2026</div>
+            <div class="timeline__body">
+              <h3>The championship is found</h3>
+              <p>
+                The City of Lights Championship is found. What vanished in 1919
+                is back in Longmont where it belongs.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
             <div class="timeline__date">March 7, 2026</div>
             <div class="timeline__body">
-              <h3>Vendetta at the Opera House</h3>
+              <h3>Zeak is appointed, JT Staten takes the gauntlet</h3>
               <p>
-                What started as a comeback becomes a reckoning. The 2017 wound
-                is no longer rumor, the Pillars can no longer pretend the city
-                forgot, and the feud moves from rivalry to outright vendetta.
+                Adam Starling appoints Zeak Gallent the first City of Lights
+                Champion for surviving the City of Lights tournament at Battle
+                at the Opera House. On the same night, Zeak is eliminated from
+                the City of Lights Elimination Gauntlet, and JT Staten wins the
+                match.
               </p>
             </div>
           </article>
