@@ -590,6 +590,28 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .link-card {
+      overflow: hidden;
+    }
+
+    .card-img {
+      margin: -1.35rem -1.35rem 0;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .link-card:hover .card-img img {
+      transform: scale(1.03);
+    }
+
     .footer {
       padding: 0 0 3rem;
     }
@@ -1129,6 +1151,9 @@
 
         <div class="link-grid">
           <article class="link-card reveal">
+            <div class="card-img">
+              <img src="webimages/game-championship-run.png" alt="Championship Run pixel art main menu" loading="lazy" />
+            </div>
             <p class="card-label">Platformer</p>
             <h3>Championship Run</h3>
             <div class="domain">run.locopro.pw</div>
@@ -1149,6 +1174,9 @@
           </article>
 
           <article class="link-card reveal">
+            <div class="card-img">
+              <img src="webimages/game-games-master.png" alt="Games Master dark title screen" loading="lazy" />
+            </div>
             <p class="card-label">Horror</p>
             <h3>Games Master</h3>
             <div class="domain">gamesmaster.locopro.pw</div>
