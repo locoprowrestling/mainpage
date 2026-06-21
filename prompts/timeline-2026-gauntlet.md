@@ -34,7 +34,7 @@ IDENTITY (from reference image):
 
 SCENE:
 - JT Staten stands alone in the center of a professional wrestling ring, facing the viewer
-  at a slight three-quarter angle
+  directly — straight-on, full front, looking into the camera
 - His arms are uncrossed from his usual pose — one arm raised, holding the City of Lights
   Championship belt above his head, belt facing outward toward the viewer
 - He wears: white rolled-sleeve dress shirt, dark charcoal vest, dark dress pants,
@@ -76,7 +76,8 @@ No text beyond what appears on the belt itself. No other logos. No other figures
 
 ```
 photorealistic, digital painting, gradients, soft glow, radial light, painterly blending,
-smooth vector art, invented face, generic wrestler, altered identity, crowd cheering,
+smooth vector art, invented face, generic wrestler, altered identity, back-of-head view,
+profile view, silhouette only, face hidden, face in shadow, crowd cheering,
 colorful arena LED lighting, modern large stadium, multiple figures in ring, referee,
 chibi proportions, mascot style, uniform thin outlines, text, watermark, logos,
 pastel, blue, orange, low quality, blurry
