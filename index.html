@@ -123,6 +123,13 @@
       padding: 0.95rem 0;
     }
 
+    .site-header__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -269,16 +276,6 @@
     .site-header.is-open .nav-toggle__bars::after {
       top: 0;
       transform: rotate(-45deg);
-    }
-
-    @keyframes navToggleIn {
-      from { opacity: 0; transform: scale(0.85); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes navDropdownIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .hero {
@@ -764,15 +761,12 @@
       .nav a,
       .button,
       .site-header,
+      .nav-wrap,
+      .nav-toggle,
       .nav-toggle__bars,
       .nav-toggle__bars::before,
       .nav-toggle__bars::after {
         transition: none;
-      }
-
-      .site-header.is-scrolled .nav-toggle,
-      .site-header.is-scrolled.is-open .nav {
-        animation: none;
       }
     }
 
@@ -794,10 +788,15 @@
     }
 
     @media (max-width: 720px) {
-      .site-header__inner,
       .footer__panel {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .site-header__inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
       }
 
       .nav {
@@ -805,38 +804,42 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
+        padding-top: 0.9rem;
+        overflow: hidden;
+        min-height: 0;
       }
 
-      /* Once scrolled, collapse the full nav into a single menu button so
-         the sticky header reclaims vertical space. */
-      .site-header.is-scrolled .site-header__inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+      /* Menu button reserves its slot in the bar but only becomes visible
+         once the header is scrolled. */
+      .nav-toggle {
+        display: inline-flex;
+        opacity: 0;
+        transform: scale(0.9);
+        pointer-events: none;
+        transition: opacity 220ms ease, transform 220ms ease;
       }
 
       .site-header.is-scrolled .nav-toggle {
-        display: inline-flex;
-        animation: navToggleIn 240ms ease both;
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
       }
 
-      .site-header.is-scrolled .nav {
-        display: none;
-      }
-
-      .site-header.is-scrolled.is-open .nav {
+      /* Collapsible wrapper: grid-template-rows animates smoothly between the
+         nav's natural height (1fr) and nothing (0fr), so the header height
+         eases instead of snapping. */
+      .nav-wrap {
         display: grid;
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        right: 0;
-        left: 0;
-        padding: 0.85rem;
-        border-radius: var(--radius);
-        border: 1px solid var(--line);
-        background: rgba(47, 11, 86, 0.96);
-        box-shadow: 0 22px 44px rgba(8, 2, 22, 0.45);
-        transform-origin: top center;
-        animation: navDropdownIn 220ms ease both;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows 320ms ease;
+      }
+
+      .site-header.is-scrolled .nav-wrap {
+        grid-template-rows: 0fr;
+      }
+
+      .site-header.is-scrolled.is-open .nav-wrap {
+        grid-template-rows: 1fr;
       }
 
       .hero {
@@ -860,32 +863,36 @@
 <body>
   <header class="site-header">
     <div class="shell site-header__inner">
-      <a class="brand" href="#top" aria-label="LoCo Pro Wrestling home">
-        <span class="brand__mark" aria-hidden="true">
-          <img src="webimages/locopro-logo.png" alt="">
-        </span>
-        <span>LoCo Pro Wrestling</span>
-      </a>
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-      >
-        <span class="nav-toggle__bars" aria-hidden="true"></span>
-        <span class="nav-toggle__label">Menu</span>
-      </button>
-      <nav class="nav" id="primary-nav" aria-label="Site sections">
-        <a href="#events">Event Sites</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#games">Games</a>
-        <a
-          href="https://www.youtube.com/channel/UCf3NpWaiORJKUdBi0GI1u9w"
-          target="_blank"
-          rel="noopener noreferrer"
-        >YouTube</a>
-      </nav>
+      <div class="site-header__bar">
+        <a class="brand" href="#top" aria-label="LoCo Pro Wrestling home">
+          <span class="brand__mark" aria-hidden="true">
+            <img src="webimages/locopro-logo.png" alt="">
+          </span>
+          <span>LoCo Pro Wrestling</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="nav-toggle__label">Menu</span>
+        </button>
+      </div>
+      <div class="nav-wrap">
+        <nav class="nav" id="primary-nav" aria-label="Site sections">
+          <a href="#events">Event Sites</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#games">Games</a>
+          <a
+            href="https://www.youtube.com/channel/UCf3NpWaiORJKUdBi0GI1u9w"
+            target="_blank"
+            rel="noopener noreferrer"
+          >YouTube</a>
+        </nav>
+      </div>
     </div>
   </header>
 
