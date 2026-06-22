@@ -105,6 +105,13 @@
       backdrop-filter: blur(14px);
       background: rgba(47, 11, 86, 0.76);
       border-bottom: 1px solid var(--line);
+      transition: background 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(39, 9, 72, 0.92);
+      border-bottom-color: var(--line-strong);
+      box-shadow: 0 16px 34px rgba(8, 2, 22, 0.32);
     }
 
     .site-header__inner {
@@ -232,6 +239,7 @@
       height: 2px;
       border-radius: 2px;
       background: currentColor;
+      transition: transform 240ms ease, top 240ms ease, background 240ms ease;
     }
 
     .nav-toggle__bars {
@@ -246,6 +254,31 @@
     .nav-toggle__bars::after {
       position: absolute;
       top: 6px;
+    }
+
+    /* Morph the hamburger into an X while the menu is open. */
+    .site-header.is-open .nav-toggle__bars {
+      background: transparent;
+    }
+
+    .site-header.is-open .nav-toggle__bars::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .site-header.is-open .nav-toggle__bars::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    @keyframes navToggleIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes navDropdownIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .hero {
@@ -729,8 +762,17 @@
       }
 
       .nav a,
-      .button {
+      .button,
+      .site-header,
+      .nav-toggle__bars,
+      .nav-toggle__bars::before,
+      .nav-toggle__bars::after {
         transition: none;
+      }
+
+      .site-header.is-scrolled .nav-toggle,
+      .site-header.is-scrolled.is-open .nav {
+        animation: none;
       }
     }
 
@@ -775,6 +817,7 @@
 
       .site-header.is-scrolled .nav-toggle {
         display: inline-flex;
+        animation: navToggleIn 240ms ease both;
       }
 
       .site-header.is-scrolled .nav {
@@ -792,6 +835,8 @@
         border: 1px solid var(--line);
         background: rgba(47, 11, 86, 0.96);
         box-shadow: 0 22px 44px rgba(8, 2, 22, 0.45);
+        transform-origin: top center;
+        animation: navDropdownIn 220ms ease both;
       }
 
       .hero {
