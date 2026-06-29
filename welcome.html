@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoCo Pro Wrestling | You're Signed In</title>
+  <meta name="description" content="You're signed in to LoCo Pro Wrestling. Jump back into the events, games, and fan channels.">
+  <meta name="theme-color" content="#3d175d">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="LoCo Pro Wrestling | You're Signed In">
+  <meta property="og:description" content="You're signed in to LoCo Pro Wrestling.">
+  <link rel="icon" type="image/png" href="webimages/locopro-logo.png">
+  <link rel="apple-touch-icon" href="webimages/locopro-logo.png">
+  <style>
+    :root {
+      --ink: #f5f5f5;
+      --ink-soft: rgba(207, 207, 207, 0.82);
+      --gold: #cfac00;
+      --green: #008642;
+      --red: #e0556a;
+      --plum: #150d20;
+      --line: rgba(207, 207, 207, 0.14);
+      --line-strong: rgba(90, 36, 136, 0.72);
+      --surface: rgba(47, 11, 86, 0.8);
+      --shadow: 0 26px 70px rgba(7, 2, 20, 0.45);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(207, 172, 0, 0.18), transparent 24rem),
+        radial-gradient(circle at top right, rgba(0, 134, 66, 0.16), transparent 22rem),
+        radial-gradient(circle at center top, rgba(90, 36, 136, 0.3), transparent 32rem),
+        linear-gradient(180deg, #3d175d 0%, #2f0b56 52%, #150d20 100%);
+      font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+      line-height: 1.5;
+      min-width: 320px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(207, 207, 207, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 36, 136, 0.14) 1px, transparent 1px);
+      background-size: 100% 30px, 30px 100%;
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(207, 172, 0, 0.15), transparent 34%),
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.08), transparent 16%),
+        radial-gradient(circle at 88% 10%, rgba(0, 134, 66, 0.1), transparent 14%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      width: min(var(--max-width), calc(100vw - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      background: rgba(47, 11, 86, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .brand__mark {
+      width: 3rem;
+      height: 3rem;
+      padding: 0.38rem;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(90, 36, 136, 0.94), rgba(47, 11, 86, 0.92));
+      border: 1px solid var(--line-strong);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 10px 22px rgba(8, 2, 22, 0.32);
+    }
+
+    .brand__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 2.8rem;
+      padding: 0.78rem 1.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(10, 3, 24, 0.34);
+      outline: none;
+    }
+
+    .button--primary {
+      background: linear-gradient(135deg, var(--gold), #b99b00);
+      color: var(--plum);
+      border: 1px solid rgba(207, 172, 0, 0.4);
+    }
+
+    .button--ghost {
+      background: rgba(90, 36, 136, 0.22);
+      border: 1px solid rgba(207, 207, 207, 0.12);
+      color: var(--ink);
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 3.5rem 0;
+    }
+
+    .card {
+      width: min(var(--max-width), calc(100vw - 2rem));
+      max-width: 640px;
+      text-align: center;
+      padding: clamp(2rem, 6vw, 3.4rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(47, 11, 86, 0.94), rgba(61, 23, 93, 0.96)),
+        radial-gradient(circle at right top, rgba(207, 172, 0, 0.2), transparent 36%);
+      box-shadow: var(--shadow);
+    }
+
+    .badge {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 auto 1.4rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 2.4rem;
+      line-height: 1;
+      background: radial-gradient(circle, rgba(0, 134, 66, 0.4), rgba(90, 36, 136, 0.16));
+      border: 1px solid rgba(0, 134, 66, 0.5);
+    }
+
+    .card.is-error .badge {
+      background: radial-gradient(circle, rgba(224, 85, 106, 0.34), rgba(90, 36, 136, 0.16));
+      border-color: rgba(224, 85, 106, 0.5);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.7rem;
+      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .card.is-error .eyebrow {
+      color: var(--red);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+    }
+
+    .lead {
+      margin: 1.2rem auto 0;
+      max-width: 46ch;
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .footer {
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 720px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      .actions .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="/" aria-label="LoCo Pro Wrestling home">
+        <span class="brand__mark" aria-hidden="true">
+          <img src="webimages/locopro-logo.png" alt="">
+        </span>
+        <span>LoCo Pro Wrestling</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" id="card">
+      <div class="badge" id="badge" aria-hidden="true">&#10003;</div>
+      <p class="eyebrow" id="eyebrow">Signed In</p>
+      <h1 id="title">You're in.</h1>
+      <p class="lead" id="message">
+        You're signed in to LoCo Pro Wrestling. Head back to the action — the
+        events, the games, and everything else are waiting.
+      </p>
+      <div class="actions">
+        <a class="button button--primary" href="/">Go to the home page</a>
+        <a class="button button--ghost" href="/#events">See the events</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p>&copy; 2026 LoCo Pro Wrestling LLC &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var status = (params.get('status') || '').toLowerCase();
+
+      if (status === 'error' || status === 'failed' || status === 'denied') {
+        var card = document.getElementById('card');
+        card.classList.add('is-error');
+        document.getElementById('badge').innerHTML = '&#33;';
+        document.getElementById('eyebrow').textContent = 'Sign-in Problem';
+        document.getElementById('title').textContent = "That didn't go through.";
+        document.getElementById('message').textContent =
+          'We couldn’t finish signing you in. Head back and try again, or reach out to biz@locopro.pw if it keeps happening.';
+      }
+    }());
+  </script>
+</body>
+</html>
