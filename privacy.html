@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoCo Pro Wrestling | Privacy Policy</title>
+  <meta
+    name="description"
+    content="Privacy Policy for LoCo Pro Wrestling LLC and the information handled through the locopro.pw family of websites and apps."
+  >
+  <meta name="theme-color" content="#3d175d">
+  <meta property="og:title" content="LoCo Pro Wrestling | Privacy Policy">
+  <meta property="og:description" content="Privacy Policy for LoCo Pro Wrestling LLC.">
+  <link rel="icon" type="image/png" href="webimages/locopro-logo.png">
+  <link rel="apple-touch-icon" href="webimages/locopro-logo.png">
+  <style>
+    :root {
+      --ink: #f5f5f5;
+      --ink-soft: rgba(207, 207, 207, 0.82);
+      --paper: #3d175d;
+      --paper-deep: #2f0b56;
+      --brick: #5a2488;
+      --gold: #cfac00;
+      --green: #008642;
+      --plum: #150d20;
+      --line: rgba(207, 207, 207, 0.14);
+      --line-strong: rgba(90, 36, 136, 0.72);
+      --surface: rgba(47, 11, 86, 0.8);
+      --shadow: 0 26px 70px rgba(7, 2, 20, 0.45);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(207, 172, 0, 0.18), transparent 24rem),
+        radial-gradient(circle at top right, rgba(0, 134, 66, 0.16), transparent 22rem),
+        radial-gradient(circle at center top, rgba(90, 36, 136, 0.3), transparent 32rem),
+        linear-gradient(180deg, #3d175d 0%, #2f0b56 52%, #150d20 100%);
+      font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+      line-height: 1.5;
+      min-width: 320px;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(207, 207, 207, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 36, 136, 0.14) 1px, transparent 1px);
+      background-size: 100% 30px, 30px 100%;
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(207, 172, 0, 0.15), transparent 34%),
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.08), transparent 16%),
+        radial-gradient(circle at 88% 10%, rgba(0, 134, 66, 0.1), transparent 14%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--gold);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      width: min(var(--max-width), calc(100vw - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(47, 11, 86, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .brand__mark {
+      width: 3rem;
+      height: 3rem;
+      padding: 0.38rem;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(90, 36, 136, 0.94), rgba(47, 11, 86, 0.92));
+      border: 1px solid var(--line-strong);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 10px 22px rgba(8, 2, 22, 0.32);
+    }
+
+    .brand__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.65rem;
+    }
+
+    .nav a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 2.8rem;
+      padding: 0.78rem 1.15rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+      color: var(--ink);
+    }
+
+    .nav a:hover,
+    .button:hover,
+    .nav a:focus-visible,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(10, 3, 24, 0.34);
+      outline: none;
+    }
+
+    .button--primary,
+    .nav a:first-child {
+      background: linear-gradient(135deg, var(--gold), #b99b00);
+      color: var(--plum);
+      border: 1px solid rgba(207, 172, 0, 0.4);
+    }
+
+    .button--ghost {
+      background: rgba(90, 36, 136, 0.22);
+      border: 1px solid rgba(207, 207, 207, 0.12);
+      color: var(--ink);
+    }
+
+    .legal {
+      padding: 4rem 0 4rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .legal h1 {
+      margin: 0;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+    }
+
+    .legal__updated {
+      margin: 1rem 0 0;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    .legal__panel {
+      margin-top: 2rem;
+      padding: clamp(1.6rem, 4vw, 3rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .legal__panel h2 {
+      margin: 2.2rem 0 0.7rem;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 1.7rem;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .legal__panel h2:first-child {
+      margin-top: 0;
+    }
+
+    .legal__panel p,
+    .legal__panel li {
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .legal__panel p {
+      margin: 0 0 1rem;
+    }
+
+    .legal__panel ul {
+      margin: 0 0 1rem;
+      padding-left: 1.3rem;
+    }
+
+    .legal__panel li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer {
+      padding: 0 0 3rem;
+    }
+
+    .footer__panel {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(47, 11, 86, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .footer__panel p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    @media (max-width: 720px) {
+      .site-header__inner,
+      .footer__panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="/" aria-label="LoCo Pro Wrestling home">
+        <span class="brand__mark" aria-hidden="true">
+          <img src="webimages/locopro-logo.png" alt="">
+        </span>
+        <span>LoCo Pro Wrestling</span>
+      </a>
+      <nav class="nav" aria-label="Site sections">
+        <a href="/">Home</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal">
+      <div class="shell">
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="legal__updated">Last updated March 24, 2026 — How LoCo Pro Wrestling handles the information collected through this website.</p>
+
+        <div class="legal__panel">
+          <h2>What this site does right now</h2>
+          <p>
+            LoCo Pro Wrestling uses this site to promote events, roster pages, support options, merchandise links, videos, and direct contact.
+          </p>
+
+          <h2>Information you give us directly</h2>
+          <p>
+            We collect information you choose to send us, such as your email address and any details you include when you contact <a href="mailto:biz@locopro.pw">biz@locopro.pw</a>.
+          </p>
+          <p>
+            On pages with a newsletter signup field, the current site opens your email application with a pre-filled message to us. Your email address is sent only if you choose to send that message.
+          </p>
+
+          <h2>Information collected automatically</h2>
+          <p>
+            Like most websites, our hosting and delivery providers may receive technical data when you visit the site, such as your IP address, browser or device details, referring page, and basic request logs used to deliver and protect the site.
+          </p>
+          <p>
+            As of March 24, 2026, we do not use a customer account system, on-site checkout, or embedded analytics or ad-pixel tools on the public site pages we reviewed.
+          </p>
+
+          <h2>We use information to</h2>
+          <ul>
+            <li>respond to inquiries, sponsorship messages, support questions, and privacy requests;</li>
+            <li>manage mailing list requests you choose to send to us by email;</li>
+            <li>operate, secure, and improve the website and related event communications;</li>
+            <li>keep records reasonably necessary for business, legal, or safety purposes.</li>
+          </ul>
+
+          <h2>We may share information with</h2>
+          <ul>
+            <li>service providers that help host or technically deliver the site;</li>
+            <li>platforms you choose to use, such as Eventbrite, Patreon, YouTube, Pro Wrestling Tees, TeePublic, Spotify, Apple Music, and social media services;</li>
+            <li>authorities, insurers, or advisors when reasonably necessary to comply with law, protect rights, or address security or safety issues.</li>
+          </ul>
+          <p>
+            We do not currently sell personal data through this website, and we do not currently use this website for targeted advertising based on cross-site tracking.
+          </p>
+
+          <h2>Third-party links and services</h2>
+          <p>
+            This site links to external services for tickets, memberships, video, merchandise, music, and social channels. If you click through to those services or interact with content they provide, their own terms and privacy policies apply.
+          </p>
+          <p>
+            Some pages also load front-end libraries from public content-delivery networks, which may receive standard technical request information when those pages are opened.
+          </p>
+
+          <h2>Retention and security</h2>
+          <p>
+            We keep direct communications for as long as reasonably necessary to respond to you, manage operations, keep business records, or meet legal obligations. No website can promise perfect security, but we try to use reasonable administrative and technical safeguards appropriate to the information we keep.
+          </p>
+
+          <h2>Contact us about privacy</h2>
+          <p>
+            Email <a href="mailto:biz@locopro.pw?subject=Privacy%20Request">biz@locopro.pw</a> with the subject line "Privacy Request." We may need to verify that the request came from you before we act on it. If an applicable privacy law gives you additional rights, we will handle your request as required by that law.
+          </p>
+
+          <h2>Children and sensitive information</h2>
+          <p>
+            This site is not intended for children under 13, and we do not knowingly collect personal information online from children under 13 through the public site.
+          </p>
+          <p>
+            Please do not send sensitive personal information, government ID numbers, or payment card details through ordinary email or public site forms.
+          </p>
+
+          <h2>Changes to this policy</h2>
+          <p>
+            We may update this page from time to time. When we make changes, we will post the updated version here and revise the "Last updated" date.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer__panel">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 0.3rem;">LoCo Pro Wrestling</p>
+          <p>Longmont's ongoing fight over memory, power, and who gets the last word.</p>
+        </div>
+        <a class="button button--primary" href="/">Back to home</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
