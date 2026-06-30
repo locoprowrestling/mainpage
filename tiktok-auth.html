@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok Auth · LoCo Pro Wrestling</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#3d175d">
+  <link rel="icon" type="image/png" href="webimages/locopro-logo.png">
+  <style>
+    :root {
+      --ink: #f5f5f5;
+      --ink-soft: rgba(207, 207, 207, 0.82);
+      --gold: #cfac00;
+      --green: #008642;
+      --red: #e0556a;
+      --plum: #150d20;
+      --line: rgba(207, 207, 207, 0.14);
+      --line-strong: rgba(90, 36, 136, 0.72);
+      --surface: rgba(47, 11, 86, 0.8);
+      --shadow: 0 26px 70px rgba(7, 2, 20, 0.45);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2.5rem 1rem;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(207, 172, 0, 0.18), transparent 24rem),
+        radial-gradient(circle at top right, rgba(0, 134, 66, 0.16), transparent 22rem),
+        radial-gradient(circle at center top, rgba(90, 36, 136, 0.3), transparent 32rem),
+        linear-gradient(180deg, #3d175d 0%, #2f0b56 52%, #150d20 100%);
+      font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+      line-height: 1.5;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(207, 207, 207, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 36, 136, 0.14) 1px, transparent 1px);
+      background-size: 100% 30px, 30px 100%;
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .card {
+      width: min(620px, 100%);
+      padding: clamp(1.8rem, 5vw, 3rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(47, 11, 86, 0.94), rgba(61, 23, 93, 0.96)),
+        radial-gradient(circle at right top, rgba(207, 172, 0, 0.2), transparent 36%);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.6rem;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .card.is-error .eyebrow { color: var(--red); }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.9rem, 5vw, 2.7rem);
+    }
+
+    p { color: var(--ink-soft); margin: 0.6rem 0 0; }
+
+    .field { margin-top: 1.4rem; }
+
+    .field__label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--ink-soft);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .field__row { display: flex; gap: 0.6rem; }
+
+    input[readonly] {
+      flex: 1;
+      min-width: 0;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line-strong);
+      background: rgba(21, 13, 32, 0.55);
+      color: var(--ink);
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+    }
+
+    button {
+      padding: 0.85rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid rgba(207, 172, 0, 0.4);
+      background: linear-gradient(135deg, var(--gold), #b99b00);
+      color: var(--plum);
+      font: inherit;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button:active { transform: translateY(1px); }
+
+    .hint {
+      margin-top: 1.6rem;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: rgba(21, 13, 32, 0.4);
+      border: 1px solid rgba(207, 207, 207, 0.08);
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      color: var(--gold);
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="card" id="card">
+    <!-- Success / code captured -->
+    <div id="ok">
+      <p class="eyebrow">TikTok Authorization</p>
+      <h1>Authorization code received</h1>
+      <p>Copy this code into your VideoFactory auth tool to exchange it for an access token. It is single-use and expires quickly.</p>
+
+      <div class="field">
+        <label class="field__label" for="code">Authorization code</label>
+        <div class="field__row">
+          <input id="code" readonly value="">
+          <button type="button" data-copy="code">Copy</button>
+        </div>
+      </div>
+
+      <div class="field" id="stateField" hidden>
+        <label class="field__label" for="state">State</label>
+        <div class="field__row">
+          <input id="state" readonly value="">
+          <button type="button" data-copy="state">Copy</button>
+        </div>
+      </div>
+
+      <div class="hint">
+        Or run your tool against the full callback URL — everything after the
+        <code>?</code> in this page's address bar is the OAuth response.
+      </div>
+    </div>
+
+    <!-- Error from TikTok -->
+    <div id="err" hidden>
+      <p class="eyebrow">TikTok Authorization</p>
+      <h1>Authorization failed</h1>
+      <p id="errMsg"></p>
+    </div>
+
+    <!-- No params (page opened directly) -->
+    <div id="none" hidden>
+      <p class="eyebrow">TikTok Authorization</p>
+      <h1>Waiting for TikTok</h1>
+      <p>This page is the redirect target for VideoFactory's TikTok login. Start the auth flow from your tool — TikTok will send you back here with a code.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      var state = params.get('state');
+      var error = params.get('error');
+      var card = document.getElementById('card');
+
+      function show(id) { document.getElementById(id).hidden = false; }
+      function hide(id) { document.getElementById(id).hidden = true; }
+
+      if (error) {
+        hide('ok');
+        card.classList.add('is-error');
+        document.getElementById('errMsg').textContent =
+          error + (params.get('error_description') ? ' — ' + params.get('error_description') : '');
+        show('err');
+      } else if (code) {
+        document.getElementById('code').value = code;
+        if (state) {
+          document.getElementById('state').value = state;
+          document.getElementById('stateField').hidden = false;
+        }
+      } else {
+        hide('ok');
+        show('none');
+      }
+
+      document.querySelectorAll('button[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var input = document.getElementById(btn.getAttribute('data-copy'));
+          input.select();
+          navigator.clipboard.writeText(input.value).then(function () {
+            var label = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(function () { btn.textContent = label; }, 1400);
+          }).catch(function () { document.execCommand('copy'); });
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
