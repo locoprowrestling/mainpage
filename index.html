@@ -6,7 +6,7 @@
   <title>LoCo Pro Wrestling | The Story So Far</title>
   <meta
     name="description"
-    content="The main landing page for LoCo Pro Wrestling, tracing the in-universe history from Battle for Main Street through Vendetta at the Opera House."
+    content="The main landing page for LoCo Pro Wrestling, tracing the in-universe history from Battle for Main Street through The Last Stand at the Lodge."
   >
   <meta name="theme-color" content="#3d175d">
   <meta property="og:title" content="LoCo Pro Wrestling">
@@ -666,6 +666,65 @@
       font-size: 1rem;
     }
 
+    .event-card--featured {
+      position: relative;
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(220px, 0.34fr) minmax(0, 0.66fr);
+      gap: clamp(1.2rem, 4vw, 2.4rem);
+      align-items: center;
+      padding: clamp(1.1rem, 3vw, 1.7rem);
+      border-color: rgba(207, 172, 0, 0.62);
+      background:
+        linear-gradient(135deg, rgba(21, 13, 32, 0.98), rgba(61, 23, 93, 0.93)),
+        radial-gradient(circle at 80% 0%, rgba(207, 172, 0, 0.24), transparent 34%);
+      box-shadow:
+        0 0 0 1px rgba(207, 172, 0, 0.16),
+        0 34px 84px rgba(7, 2, 20, 0.58);
+    }
+
+    .event-card--featured::after {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(207, 172, 0, 0.16);
+      border-radius: calc(var(--radius) - 8px);
+      pointer-events: none;
+    }
+
+    .event-card--featured .card-img {
+      margin: 0;
+      aspect-ratio: 2 / 3;
+      border-radius: 18px;
+      border: 1px solid rgba(207, 172, 0, 0.28);
+      box-shadow: 0 22px 52px rgba(7, 2, 20, 0.48);
+    }
+
+    .event-card--featured .event-card__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-card--featured h3 {
+      max-width: 11ch;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+    }
+
+    .event-card--featured p:not(.card-label) {
+      max-width: 56ch;
+      font-size: 1.1rem;
+      line-height: 1.62;
+    }
+
+    .event-card--featured .card-label {
+      background: rgba(207, 172, 0, 0.2);
+      border-color: rgba(207, 172, 0, 0.44);
+    }
+
     .domain {
       color: var(--ink);
       font-size: 0.92rem;
@@ -778,6 +837,14 @@
         grid-template-columns: 1fr;
       }
 
+      .event-card--featured {
+        grid-template-columns: 1fr;
+      }
+
+      .event-card--featured .card-img {
+        max-width: 30rem;
+      }
+
       .timeline__item {
         grid-template-columns: 1fr;
       }
@@ -857,6 +924,10 @@
       .timeline__item::before {
         left: -1.47rem;
       }
+
+      .event-card--featured .event-card__content {
+        order: -1;
+      }
     }
   </style>
 </head>
@@ -932,8 +1003,8 @@
               <span class="detail__value">August 30, 2017</span>
             </div>
             <div class="detail">
-              <span class="detail__label">Latest chapter</span>
-              <span class="detail__value">Spring 2026</span>
+              <span class="detail__label">Featured event</span>
+              <span class="detail__value">August 30, 2026</span>
             </div>
           </div>
         </article>
@@ -1037,7 +1108,8 @@
           </div>
           <p>
             The dates below trace the fight from the first land battle in 1871
-            to the current standoff between The Rising and JT Staten's Foundation.
+            to The Last Stand at the Lodge, the featured event in the history
+            of LoCo Pro.
           </p>
         </div>
 
@@ -1219,6 +1291,19 @@
             </div>
           </article>
 
+          <article class="timeline__item reveal">
+            <div class="timeline__date">August 30, 2026</div>
+            <div class="timeline__body">
+              <h3>The Last Stand at the Lodge</h3>
+              <p>
+                Adam Starling finds a new home at the Elks Lodge Ballroom.
+                JT Staten still has the City of Lights Championship, The
+                Foundation, and the leverage. This is the featured event in the
+                history of LoCo Pro.
+              </p>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -1231,9 +1316,10 @@
             <h2>Open the chapters directly</h2>
           </div>
           <p>
-            Each event site covers a different phase of the same conflict. Start
-            at the first bell, revisit the 2025 return, or jump to the vendetta
-            that followed. Every match also lands on
+            Each event site covers a different phase of the same conflict. The
+            Last Stand at the Lodge is the featured event in the history of
+            LoCo Pro, with every prior chapter leading into August 30, 2026.
+            Every match also lands on
             <a
               href="https://www.youtube.com/channel/UCf3NpWaiORJKUdBi0GI1u9w"
               target="_blank"
@@ -1244,6 +1330,41 @@
         </div>
 
         <div class="event-grid">
+          <article class="event-card event-card--featured reveal">
+            <div class="card-img">
+              <img src="webimages/event-laststand.jpg" alt="The Last Stand at the Lodge event poster" loading="lazy" />
+            </div>
+            <div class="event-card__content">
+              <p class="card-label">Featured Event in the History of LoCo Pro</p>
+              <h3>The Last Stand at the Lodge</h3>
+              <div class="domain">laststand.locopro.pw</div>
+              <p>
+                August 30, 2026 at the Elks Lodge Ballroom. Adam Starling has
+                the venue. JT Staten has the title, The Foundation, and
+                everything else. This is the chapter every prior fight points
+                toward.
+              </p>
+              <div class="button-stack">
+                <a
+                  class="button button--primary button--card"
+                  href="https://laststand.locopro.pw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit featured event
+                </a>
+                <a
+                  class="button button--ghost button--card"
+                  href="https://tickets.locopro.pw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get tickets
+                </a>
+              </div>
+            </div>
+          </article>
+
           <article class="event-card reveal">
             <div class="card-img">
               <img src="webimages/event-mainstreet.jpg" alt="Battle for Main Street event site" loading="lazy" />

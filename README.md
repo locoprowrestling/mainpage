@@ -8,6 +8,10 @@ Pages
 -----
 
 - `index.html` — landing page (story, timeline, event directory, links).
+  - The event directory supports a full-width featured event card. Current
+    featured event: **The Last Stand at the Lodge** →
+    `https://laststand.locopro.pw`, using
+    `webimages/event-laststand.jpg`.
 - `terms.html` — Terms of Service.
 - `privacy.html` — Privacy Policy.
   - Both legal pages reuse the canonical copy from the `battle`/`vendetta`
@@ -26,6 +30,16 @@ ES modules / `fetch` / audio need HTTP, not `file://`:
 ```sh
 python3 -m http.server 8080   # then open http://localhost:8080
 ```
+
+For quick asset checks after adding event artwork:
+
+```sh
+node -e "const fs=require('fs'); const html=fs.readFileSync('index.html','utf8'); for (const m of html.matchAll(/(?:src|href)=\\\"([^\\\"]+)\\\"/g)) { const u=m[1]; if (/^(https?:|#|mailto:)/.test(u)) continue; if (!fs.existsSync(u)) { console.log('MISSING '+u); process.exitCode=1; } }"
+git diff --check
+```
+
+More detailed mainpage event-directory notes live in:
+`.knowledgebase/projects/mainpage/README.md`.
 
 Deploy
 ------
