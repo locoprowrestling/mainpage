@@ -675,9 +675,10 @@
       position: relative;
       grid-column: 1 / -1;
       display: grid;
+      grid-template-columns: minmax(220px, 0.34fr) minmax(0, 0.66fr);
       gap: clamp(1.2rem, 4vw, 2.4rem);
       align-items: center;
-      padding: clamp(1.4rem, 4vw, 2.2rem);
+      padding: clamp(1.1rem, 3vw, 1.7rem);
       border-color: rgba(207, 172, 0, 0.62);
       background:
         linear-gradient(135deg, rgba(21, 13, 32, 0.98), rgba(61, 23, 93, 0.93)),
@@ -694,6 +695,14 @@
       border: 1px solid rgba(207, 172, 0, 0.16);
       border-radius: calc(var(--radius) - 8px);
       pointer-events: none;
+    }
+
+    .event-card--featured .card-img {
+      margin: 0;
+      aspect-ratio: 2 / 3;
+      border-radius: 18px;
+      border: 1px solid rgba(207, 172, 0, 0.28);
+      box-shadow: 0 22px 52px rgba(7, 2, 20, 0.48);
     }
 
     .event-card--featured .event-card__content {
@@ -833,6 +842,14 @@
         grid-template-columns: 1fr;
       }
 
+      .event-card--featured {
+        grid-template-columns: 1fr;
+      }
+
+      .event-card--featured .card-img {
+        max-width: 30rem;
+      }
+
       .timeline__item {
         grid-template-columns: 1fr;
       }
@@ -912,6 +929,10 @@
       .timeline__item::before {
         left: -1.47rem;
       }
+
+      .event-card--featured .event-card__content {
+        order: -1;
+      }
     }
   </style>
 </head>
@@ -987,7 +1008,7 @@
               <span class="detail__value">August 30, 2017</span>
             </div>
             <div class="detail">
-              <span class="detail__label">Featured event</span>
+              <span class="detail__label">Next event</span>
               <span class="detail__value">August 30, 2026</span>
             </div>
           </div>
@@ -1092,8 +1113,8 @@
           </div>
           <p>
             The dates below trace the fight from the first land battle in 1871
-            to The Last Stand at the Lodge, the featured event in the history
-            of LoCo Pro.
+            to The Last Stand at the Lodge, live at the Elks Lodge Ballroom
+            on August 30, 2026.
           </p>
         </div>
 
@@ -1282,8 +1303,8 @@
               <p>
                 Adam Starling finds a new home at the Elks Lodge Ballroom.
                 JT Staten still has the City of Lights Championship, The
-                Foundation, and the leverage. This is the featured event in the
-                history of LoCo Pro.
+                Foundation, and the leverage. This is the next LoCo Pro
+                event, live and in person.
               </p>
             </div>
           </article>
@@ -1301,9 +1322,9 @@
           </div>
           <p>
             Each event site covers a different phase of the same conflict. The
-            Last Stand at the Lodge is the featured event in the history of
-            LoCo Pro, with every prior chapter leading into August 30, 2026.
-            Every match also lands on
+            Last Stand at the Lodge is the next LoCo Pro event, with every
+            prior chapter leading into August 30, 2026. Every match also
+            lands on
             <a
               href="https://www.youtube.com/channel/UCf3NpWaiORJKUdBi0GI1u9w"
               target="_blank"
@@ -1315,6 +1336,9 @@
 
         <div class="event-grid">
           <article class="event-card event-card--featured reveal">
+            <div class="card-img">
+              <img src="webimages/event-laststand.jpg" alt="The Last Stand at the Lodge event poster" loading="lazy" />
+            </div>
             <div class="event-card__content">
               <p class="card-label">The Next LoCo Pro Event</p>
               <h3>The Last Stand at the Lodge</h3>
