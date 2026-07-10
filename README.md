@@ -18,9 +18,10 @@ Pages
     event sites (Colorado governing law, contact `biz@locopro.pw`), restyled to
     match `index.html`. Linked from the footer.
 - `welcome.html` — generic post-login landing (`noindex`); reads `?status=`.
-- `tiktok-auth.html` — `noindex` static HTTPS redirect target for VideoFactory's
-  TikTok OAuth. Captures the `?code=` from TikTok and shows it for the local
-  tool to exchange. See `.knowledgebase/tools/tiktok-developer-app-setup.md`.
+- `tiktok-auth.html` — `noindex` static HTTPS redirect target for
+  LoCoProGenFactory/youtube's TikTok OAuth. Captures the `?code=` from TikTok
+  and shows it for the local tool to exchange. See
+  `.knowledgebase/tools/tiktok-developer-app-setup.md`.
 
 Run locally
 -----------
@@ -50,6 +51,47 @@ Deploy
   `archive/`, `README.md`, `.DS_Store`, etc.) is dropped.
 - Push to the default branch to deploy. The remote often diverges between
   sessions — `git pull --rebase` before pushing.
+- Before committing, check for unrelated dirty files and stage only the intended
+  change. For small `index.html` content updates, use `git add index.html`.
+  If `git push origin main` is rejected with `fetch first`, fetch and rebase;
+  stash unrelated local files by path before rebasing when needed, then pop the
+  stash before pushing.
+
+Static asset hosting
+--------------------
+
+`webimages/brand/locopro-layers/` holds the LoCo Pro logo layer PNGs used by
+external renderers that require public HTTPS image URLs, including vidIQ motion
+graphics. Source layers live in:
+
+```text
+/Users/gecko/locoprowrestling/LoCoProGenFactory/logos/3D Objects/LoCoPro_Layers/
+```
+
+After pushing asset changes, wait for GitHub Pages and verify the public URLs
+return images before using them in a render:
+
+```sh
+for f in 01_starburst.png 02_ring.png 03_badge.png 04_text.png; do
+  curl -L -s -o /dev/null -w "$f %{http_code} %{content_type}\n" \
+    "https://mainpage.locopro.pw/webimages/brand/locopro-layers/$f"
+done
+```
+
+Expected output is `200 image/png` for each file.
+
+Content notes
+-------------
+
+- The current hero ledger "Primary venue" value is in `index.html` near the
+  `ledger__label` text `Primary venue`.
+- If that value is `Elks Lodge 1055`, the adjacent street/location label should
+  be `Coffman Street`, not `Main Street`.
+- Do not bulk-replace every `Dickens Opera House` mention for venue updates.
+  Several references are historical timeline/story context.
+- The Event Directory section should appear above the Timeline section in the
+  page body. Keep the top navigation in the same practical order: Event Sites,
+  then Timeline.
 
 Domain
 ------
