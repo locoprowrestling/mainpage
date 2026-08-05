@@ -30,6 +30,29 @@
       transform-origin: center center;
       font-family: Arial, sans-serif;
       overflow: hidden;
+      filter: brightness(1);
+      transition: filter 1.1s ease;
+    }
+
+    /* Power-off: room goes dark but shapes stay visible as outlines,
+       and everything freezes instead of flickering in the dark. */
+    #stage.lights-off {
+      filter: brightness(0.24) saturate(0.35) contrast(1.15);
+    }
+
+    #stage.lights-off * {
+      animation-play-state: paused !important;
+    }
+
+    /* The monitor itself goes fully dark, like a CRT with the power
+       cut, rather than just dimming along with the rest of the room. */
+    #stage.lights-off #dance-screen {
+      background-color: #000;
+      background-image: none;
+    }
+
+    #stage.lights-off #dance-screen > * {
+      visibility: hidden;
     }
 
     #stage .wall {
@@ -723,8 +746,8 @@
         <div class="monitor-chin">
           <div class="monitor-brand">LoCoTron 2003</div>
           <div class="monitor-lights">
-            <div class="led"></div>
-            <div class="knob"></div>
+            <div class="led" id="power-led"></div>
+            <div class="knob poke-me" id="power-knob"></div>
             <div class="knob"></div>
             <div class="knob"></div>
           </div>
@@ -1023,6 +1046,29 @@
       };
       window.addEventListener('click', startOnInteraction);
       window.addEventListener('keydown', startOnInteraction);
+    })();
+
+    // Power knob — kills the music and drops the whole room to a dark
+    // silhouette until it's clicked again.
+    (function () {
+      var stage = document.getElementById('stage');
+      var knob = document.getElementById('power-knob');
+      var music = document.getElementById('dance-music');
+      var camVideo = document.querySelector('.side-crt video');
+      var isOff = false;
+
+      knob.addEventListener('click', function (e) {
+        e.stopPropagation();
+        isOff = !isOff;
+        stage.classList.toggle('lights-off', isOff);
+        if (isOff) {
+          music.pause();
+          if (camVideo) { camVideo.pause(); }
+        } else {
+          music.play().catch(function () {});
+          if (camVideo) { camVideo.play().catch(function () {}); }
+        }
+      });
     })();
   </script>
 </body>
