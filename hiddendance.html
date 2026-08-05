@@ -660,6 +660,8 @@
     </div>
   </div>
 
+  <audio id="dance-music" src="hiddendance/dance-music.mp3" loop autoplay></audio>
+
   <script>
     (function () {
       var tileSvg = encodeURIComponent(
@@ -854,6 +856,21 @@
         requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
+    })();
+
+    // Background music — loops forever; browsers that block unmuted
+    // autoplay will get it started on the first click/keypress instead.
+    (function () {
+      var music = document.getElementById('dance-music');
+      var tryPlay = function () { music.play().catch(function () {}); };
+      tryPlay();
+      var startOnInteraction = function () {
+        tryPlay();
+        window.removeEventListener('click', startOnInteraction);
+        window.removeEventListener('keydown', startOnInteraction);
+      };
+      window.addEventListener('click', startOnInteraction);
+      window.addEventListener('keydown', startOnInteraction);
     })();
   </script>
 </body>
