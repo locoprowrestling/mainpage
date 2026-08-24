@@ -11,7 +11,7 @@ Pages
   - The event directory supports a full-width featured event card. Current
     featured event: **The Last Stand at the Lodge** →
     `https://laststand.locopro.pw`, using
-    `webimages/event-laststand.jpg`.
+    `webimages/event-laststand-v2.png`.
 - `terms.html` — Terms of Service.
 - `privacy.html` — Privacy Policy.
   - Both legal pages reuse the canonical copy from the `battle`/`vendetta`
