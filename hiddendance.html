@@ -796,16 +796,7 @@
       function resize() {
         var w = window.innerWidth;
         var h = window.innerHeight;
-        var stageAspect = 1920 / 1080;
-        var scale;
-        if (w / h < stageAspect) {
-          // Portrait/narrow viewport (phones): fill the height and crop
-          // the sides instead of shrinking to fit the width, which would
-          // leave the whole scene as a tiny unreadable strip.
-          scale = h / 1080;
-        } else {
-          scale = w / 1920;
-        }
+        var scale = Math.min(w / 1920, h / 1080);
         stage.style.transform = 'scale(' + scale + ')';
       }
       window.addEventListener('resize', resize);
