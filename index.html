@@ -7,13 +7,13 @@
   <title>LoCo Pro Wrestling | The Story So Far</title>
   <meta
     name="description"
-    content="The main landing page for LoCo Pro Wrestling, tracing the in-universe history from Battle for Main Street through The Last Stand at the Lodge."
+    content="LoCo Pro Wrestling is a story-driven professional wrestling promotion built in and for Longmont, Colorado. Zeak Gallent is the City of Lights Champion after The Last Stand at the Lodge. Read the story so far and open every event site."
   >
   <meta name="theme-color" content="#3d175d">
   <meta property="og:title" content="LoCo Pro Wrestling">
   <meta
     property="og:description"
-    content="One city. Two factions. Read the LoCo Pro Wrestling timeline and jump straight into each event site."
+    content="One city. Three voices. Zeak Gallent is the City of Lights Champion. Read the LoCo Pro Wrestling timeline and jump straight into each event site."
   >
   <link rel="icon" type="image/png" href="webimages/locopro-logo.png">
   <link rel="apple-touch-icon" href="webimages/locopro-logo.png">
@@ -552,6 +552,53 @@
       line-height: 1.62;
     }
 
+    /* Post-Last Stand aftermath section (added 2026-09-05). */
+    .aftermath-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .aftermath-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.45rem 1.35rem 1.4rem;
+      border: 1px solid rgba(207, 172, 0, 0.32);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(47, 11, 86, 0.94), rgba(61, 23, 93, 0.96)),
+        radial-gradient(circle at right top, rgba(207, 172, 0, 0.18), transparent 40%);
+      box-shadow: var(--shadow);
+    }
+
+    .aftermath-card .card-label {
+      margin-bottom: 0;
+    }
+
+    .aftermath-card h3 {
+      margin: 0;
+      font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 1.9rem;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .aftermath-card p:not(.card-label) {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    .aftermath-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
     .timeline {
       position: relative;
       display: grid;
@@ -919,6 +966,10 @@
         padding-top: 3rem;
       }
 
+      .aftermath-grid {
+        grid-template-columns: 1fr;
+      }
+
       .timeline {
         padding-left: 1.5rem;
       }
@@ -977,17 +1028,19 @@
     <section class="hero">
       <div class="shell hero__grid">
         <article class="hero__story reveal">
-          <p class="eyebrow">Longmont, Colorado</p>
-          <h1>One city. Two factions. No quiet ending.</h1>
+          <p class="eyebrow">Story-driven professional wrestling, built in and for Longmont, Colorado</p>
+          <h1>One city. Three voices. No quiet ending.</h1>
           <p class="hero__lead">
-            Longmont was built by people who earned every inch of it. The
-            Pillars still believe contracts, control, and old money decide who
-            gets to rule it. Every show at the Opera House becomes another
-            chapter in that fight.
+            Longmont was built by people who earned every inch of it. For nine
+            years the fight over who gets to say what happens here was told as
+            The Rising against The Pillars. At The Last Stand at the Lodge a
+            third voice announced itself, JT Staten lost the City of Lights
+            Championship one-on-one, and the Commissioner admitted the whole
+            year had been his design.
           </p>
 
           <div class="hero__actions">
-            <a class="button button--primary" href="#timeline">Read the timeline</a>
+            <a class="button button--primary" href="#last-stand">What just happened</a>
             <a class="button button--ghost" href="#events">Visit the event sites</a>
             <a
               class="button button--ghost"
@@ -1009,7 +1062,7 @@
               <span class="detail__value">August 30, 2017</span>
             </div>
             <div class="detail">
-              <span class="detail__label">Next event</span>
+              <span class="detail__label">Latest event</span>
               <span class="detail__value">August 30, 2026</span>
             </div>
           </div>
@@ -1037,19 +1090,84 @@
             <div class="ledger__item">
               <div>
                 <div class="ledger__label">Current conflict</div>
-                <div class="ledger__value" style="text-align: left;">The Rising vs. The Foundation</div>
+                <div class="ledger__value" style="text-align: left;">Who gets the next shot at the champion</div>
               </div>
-              <div class="ledger__label">Still active</div>
+              <div class="ledger__label">Unresolved</div>
             </div>
             <div class="ledger__item">
               <div>
                 <div class="ledger__label">City of Lights Champion</div>
-                <div class="ledger__value" style="text-align: left;">JT Staten</div>
+                <div class="ledger__value" style="text-align: left;">Zeak Gallent</div>
               </div>
-              <div class="ledger__label">Since Mar. 7, 2026</div>
+              <div class="ledger__label">Since Aug. 30, 2026</div>
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section" id="last-stand">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">The Last Stand at the Lodge · August 30, 2026</p>
+            <h2>The Lodge changed the ledger</h2>
+          </div>
+          <p>
+            Nine years to the day after the first bell, LoCo Pro filled the
+            Elks Lodge ballroom on Coffman Street. Zeak Gallent beat JT Staten
+            one-on-one for the City of Lights Championship, the Commissioner
+            confessed to a plan, and the night ended with the new champion flat
+            on his back between two men who want his belt.
+          </p>
+        </div>
+
+        <div class="aftermath-grid">
+          <article class="aftermath-card reveal">
+            <p class="card-label">New champion</p>
+            <h3>Zeak Gallent</h3>
+            <p>
+              Beat JT Staten clean in the main event. Nobody from The
+              Foundation came to save Staten. The Vigilante did come, and
+              called him out mid-match.
+            </p>
+          </article>
+          <article class="aftermath-card reveal">
+            <p class="card-label">The Commissioner</p>
+            <h3>"Sorry, Zeak. I lied to you."</h3>
+            <p>
+              Adam Starling raised the new champion's hand, then admitted that
+              every contract, every wrestler, and every dollar since November
+              had been by design. Moments later Carter Cash superkicked him.
+            </p>
+          </article>
+          <article class="aftermath-card reveal">
+            <p class="card-label">The next fight</p>
+            <h3>Hyde. Cash. The belt.</h3>
+            <p>
+              Nicky Hyde attacked Zeak from behind and held the City of Lights
+              Championship over him. Carter Cash stood on the other side. Two
+              men who won together earlier in the night now want the same
+              title.
+            </p>
+          </article>
+          <article class="aftermath-card reveal">
+            <p class="card-label">A third voice</p>
+            <h3>The rebellion</h3>
+            <p>
+              "Box State Brawler" Murdoc Graves, XJ Khaos, and Truth Through
+              Violence (Rubi Devlin and Morgan Mandella) arrived as a side
+              Longmont's history had redacted. They are not joining anybody's
+              fight.
+            </p>
+          </article>
+        </div>
+
+        <div class="aftermath-actions">
+          <a class="button button--primary" href="https://laststand.locopro.pw/#results" target="_blank" rel="noopener noreferrer">Read the full results</a>
+          <a class="button button--ghost" href="https://www.youtube.com/watch?v=za9g7keZ8nk" target="_blank" rel="noopener noreferrer">Watch the highlights</a>
+          <a class="button button--ghost" href="#timeline">See the timeline</a>
+        </div>
       </div>
     </section>
 
@@ -1061,10 +1179,11 @@
             <h2>What happened in Longmont</h2>
           </div>
           <p>
-            The conflict between The Rising and what is now The Foundation has
+            The conflict between The Rising and what became The Foundation has
             roots going back to 1871, when the Pillars first turned influence
-            into control. Dickens Opera House is one flashpoint among many;
-            across Longmont, the battle is still being fought block by block.
+            into control. At The Last Stand at the Lodge a third voice joined
+            it. Dickens Opera House is one flashpoint among many; across
+            Longmont, the battle is still being fought block by block.
           </p>
         </div>
 
@@ -1076,7 +1195,8 @@
             <p>
               Longmont's grassroots faction. Workers, lifers, loudmouths, and
               outsiders who believe the city's wrestling future belongs to the
-              people who keep showing up for it.
+              people who keep showing up for it. Zeak Gallent carries the City
+              of Lights Championship for them.
             </p>
           </article>
 
@@ -1086,8 +1206,10 @@
             <h3>The Foundation</h3>
             <p>
               The Pillars, restructured. JT Staten disbanded the old order after
-              Vendetta and rebuilt it as The Foundation: same contracts, same
-              institutional grip, new name and tighter control.
+              Vendetta and rebuilt it as The Foundation. At The Last Stand at the
+              Lodge nobody in it came when Staten called, he lost the title, and
+              its two most dangerous members, Nicky Hyde and Carter Cash, ended
+              the night on opposite sides of the champion.
             </p>
           </article>
 
@@ -1114,9 +1236,8 @@
           </div>
           <p>
             Each event site covers a different phase of the same conflict. The
-            Last Stand at the Lodge is the next LoCo Pro event, with every
-            prior chapter leading into August 30, 2026. Every match also
-            lands on
+            Last Stand at the Lodge is the latest chapter, and its full results
+            are posted. Every match also lands on
             <a
               href="https://www.youtube.com/channel/UCf3NpWaiORJKUdBi0GI1u9w"
               target="_blank"
@@ -1132,31 +1253,31 @@
               <img src="webimages/event-laststand-v2.png" alt="The Last Stand at the Lodge event poster" loading="lazy" />
             </div>
             <div class="event-card__content">
-              <p class="card-label">The Next LoCo Pro Event</p>
+              <p class="card-label">Latest LoCo Pro Event · Results Posted</p>
               <h3>The Last Stand at the Lodge</h3>
               <div class="domain">laststand.locopro.pw</div>
               <p>
-                August 30, 2026 at the Elks Lodge Ballroom. Adam Starling has
-                the venue. JT Staten has the title, The Foundation, and
-                everything else. This is the chapter every prior fight points
-                toward.
+                August 30, 2026 at the Elks Lodge Ballroom. Zeak Gallent beat
+                JT Staten one-on-one for the City of Lights Championship. Then
+                the Commissioner admitted the plan, Carter Cash flattened him,
+                and Nicky Hyde stood over the new champion holding the belt.
               </p>
               <div class="button-stack">
                 <a
                   class="button button--primary button--card"
-                  href="https://laststand.locopro.pw"
+                  href="https://laststand.locopro.pw/#results"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Visit featured event
+                  Read the results
                 </a>
                 <a
                   class="button button--ghost button--card"
-                  href="https://tickets.locopro.pw"
+                  href="https://www.youtube.com/watch?v=za9g7keZ8nk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Get tickets
+                  Watch the highlights
                 </a>
               </div>
             </div>
@@ -1267,8 +1388,8 @@
           </div>
           <p>
             The dates below trace the fight from the first land battle in 1871
-            to The Last Stand at the Lodge, live at the Elks Lodge Ballroom
-            on August 30, 2026.
+            to The Last Stand at the Lodge at the Elks Lodge Ballroom on
+            August 30, 2026, and the picture it left behind.
           </p>
         </div>
 
@@ -1455,10 +1576,29 @@
             <div class="timeline__body">
               <h3>The Last Stand at the Lodge</h3>
               <p>
-                Adam Starling finds a new home at the Elks Lodge Ballroom.
-                JT Staten still has the City of Lights Championship, The
-                Foundation, and the leverage. This is the next LoCo Pro
-                event, live and in person.
+                Nine years to the day after the first bell, LoCo Pro fills the
+                Elks Lodge Ballroom. Adam Starling opens the night by naming a
+                third voice in Longmont's fight, and "Box State Brawler" Murdoc
+                Graves, XJ Khaos, Rubi Devlin, and Morgan Mandella arrive to
+                start their own. Zeak Gallent wins a triple threat for the
+                title shot, then beats JT Staten one-on-one to become City of
+                Lights Champion after The Vigilante calls Staten out mid-match
+                and nobody from The Foundation comes to help.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <div class="timeline__date">August 30, 2026, after the bell</div>
+            <div class="timeline__body">
+              <h3>"Sorry, Zeak. I lied to you."</h3>
+              <p>
+                Starling raises the new champion's hand, then tells the room
+                that everything since November had been his design. Carter Cash
+                superkicks the Commissioner. Nicky Hyde attacks Zeak from behind
+                and holds the City of Lights Championship over him. Carter on
+                one side, Hyde on the other, the champion between them: the
+                final image of the night, and the start of the next chapter.
               </p>
             </div>
           </article>
