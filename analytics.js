@@ -96,7 +96,7 @@
     banner.innerHTML = `
       <div class="locopro-analytics-copy">
         <strong>Help LoCo improve the site?</strong>
-        <span>Optional Google Analytics measures page visits and ticket-button clicks. Advertising storage and personalization stay off. <a href="${privacyUrl}">Privacy policy</a></span>
+        <span>Optional Google Analytics measures page visits and clicks on ticket links when a show is on sale. Advertising storage and personalization stay off. <a href="${privacyUrl}">Privacy policy</a></span>
       </div>
       <div class="locopro-analytics-actions">
         <button type="button" data-choice="denied">No thanks</button>
