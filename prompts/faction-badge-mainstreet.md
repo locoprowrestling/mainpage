@@ -1,15 +1,20 @@
-# Prompt: Faction Badge — Main Street, Longmont
+# Prompt: Faction Badge — Coffman St, Downtown Longmont
 **Asset**: `webimages/ui/faction-badge-mainstreet.png`
 **Dimensions**: 1024×1024 (display at ~80×80px, circular crop)
-**Section**: Faction card — Main Street, Longmont (Ground Zero)
+**Section**: Faction card — Coffman St, Downtown Longmont (Ground Zero)
+
+> Ground Zero moved from Main Street to Coffman St (home of Elks Lodge 1055)
+> after The Last Stand at the Lodge. The asset filename keeps its original
+> `mainstreet` name so existing references keep working.
 
 ---
 
 ## ImageGen Prompt
 
 ```
-A circular comic-book badge or emblem representing Main Street, Longmont, Colorado —
-the geographic and historical ground zero of a long-running civic conflict.
+A circular comic-book badge or emblem representing Coffman Street in downtown Longmont,
+Colorado — the current ground zero of a long-running civic conflict, one block off Main
+and home of the Elks Lodge.
 
 DESIGN:
 - Circular badge format, centered composition, strong silhouette that reads at small sizes
@@ -54,6 +59,6 @@ quality: high
 
 - **Save to**: `www/webimages/ui/faction-badge-mainstreet.png`
 - Rendered as PNG with transparent background
-- Display inside the Main Street faction card (Ground Zero), above the `.card-label`
+- Display inside the Coffman St faction card (Ground Zero), above the `.card-label`
 - Crop to circle in CSS: `border-radius: 50%` at `width: 72px; height: 72px`
 - Purple badge border should complement the card's `border-color: rgba(90,36,136,0.82)`

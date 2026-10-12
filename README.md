@@ -87,6 +87,9 @@ Content notes
   `ledger__label` text `Primary venue`.
 - If that value is `Elks Lodge 1055`, the adjacent street/location label should
   be `Coffman Street`, not `Main Street`.
+- Ground Zero (third card in the faction grid) is `Coffman St, Downtown
+  Longmont`. Historical references to Main Street (Battle for Main Street,
+  the timeline) stay as they are.
 - Do not bulk-replace every `Dickens Opera House` mention for venue updates.
   Several references are historical timeline/story context.
 - The Event Directory section should appear above the Timeline section in the
